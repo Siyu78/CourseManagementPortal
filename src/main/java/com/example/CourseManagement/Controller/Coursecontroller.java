@@ -1,6 +1,7 @@
 package com.example.CourseManagement.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +35,7 @@ public class Coursecontroller {
        return this.courseService.getCourses();
     }
     @GetMapping("/courses/{courseId}")
-    public Courses getCourses(@PathVariable String courseId)
+    public Optional<Courses> getCourses(@PathVariable String courseId)
     {
        return this.courseService.getCourses(Long.parseLong(courseId));
     }

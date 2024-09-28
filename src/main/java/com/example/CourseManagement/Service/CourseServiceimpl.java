@@ -2,6 +2,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -27,8 +28,8 @@ public class CourseServiceimpl implements CourseService{
     public List<Courses> getCourses() {
         return courseDao.findAll();
     }
-    @SuppressWarnings("deprecation")
-    public Courses getCourses(long courseId){
+   
+    public Optional<Courses> getCourses(long courseId){
         // Courses c=null;
         // for(Courses course:list)
         // {
@@ -38,7 +39,7 @@ public class CourseServiceimpl implements CourseService{
         //         break;
         //     }
         // }
-        return courseDao.getOne(courseId);
+        return courseDao.findById(courseId);
     }
 
     @Override
